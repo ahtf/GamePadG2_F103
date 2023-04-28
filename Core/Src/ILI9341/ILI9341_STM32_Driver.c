@@ -162,23 +162,23 @@ switch(screen_rotation)
 	{
 		case SCREEN_VERTICAL_1:
 			ILI9341_Write_Data(0x40|0x08);
-			LCD_WIDTH = 240;
-			LCD_HEIGHT = 320;
+			LCD_WIDTH = 320;
+			LCD_HEIGHT = 240;
 			break;
 		case SCREEN_HORIZONTAL_1:
 			ILI9341_Write_Data(0x20|0x08);
-			LCD_WIDTH  = 320;
-			LCD_HEIGHT = 240;
-			break;
-		case SCREEN_VERTICAL_2:
-			ILI9341_Write_Data(0x80|0x08);
 			LCD_WIDTH  = 240;
 			LCD_HEIGHT = 320;
 			break;
-		case SCREEN_HORIZONTAL_2:
-			ILI9341_Write_Data(0x40|0x80|0x20|0x08);
+		case SCREEN_VERTICAL_2:
+			ILI9341_Write_Data(0x80|0x08);
 			LCD_WIDTH  = 320;
 			LCD_HEIGHT = 240;
+			break;
+		case SCREEN_HORIZONTAL_2:
+			ILI9341_Write_Data(0x40|0x80|0x20|0x08);
+			LCD_WIDTH  = 240;
+			LCD_HEIGHT = 320;
 			break;
 		default:
 			//EXIT IF SCREEN ROTATION NOT VALID!
@@ -401,6 +401,7 @@ ILI9341_Draw_Colour_Burst(Colour, LCD_WIDTH*LCD_HEIGHT);
 //Using pixels to draw big simple structures is not recommended as it is really slow
 //Try using either rectangles or lines if possible
 //
+
 void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t Colour) 
 {
 if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;	//OUT OF BOUNDS!
