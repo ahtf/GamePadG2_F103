@@ -37,7 +37,7 @@
 //	How to use this library
 //-----------------------------------
 //
-//	-If using MCUs other than STM32F7 you will have to change the #include "stm32f7xx_hal.h" in the ILI9341_Touchscreen.h to your respective .h file
+//	-If using MCUs other than STM32F7 you will have to change the #include "stm32f1xx_hal.h" in the ILI9341_Touchscreen.h to your respective .h file
 //	-define GPIO inputs and outputs then map the Pins and Ports inside the ILI9341_Touchscreen.h
 //	-Library does not require any initialization calls apart from GPIO initialization. Initialize GPIOs before calling library functions!
 //
@@ -82,22 +82,22 @@ if(TP_Touchpad_Pressed())
 #ifndef TOUCH_H
 #define TOUCH_H
 
-#include "stm32f7xx_hal.h"
+#include "stm32f1xx_hal.h"
+#include "main.h"
 
-
-#define TP_CLK_PORT								GPIOE
+#define TP_CLK_PORT								GPIOB
 #define TP_CLK_PIN								T_CLK_Pin
 
-#define TP_CS_PORT								GPIOE
+#define TP_CS_PORT								GPIOB
 #define TP_CS_PIN									T_CS_Pin
 
-#define TP_MISO_PORT							GPIOE
+#define TP_MISO_PORT							GPIOB
 #define TP_MISO_PIN								T_MISO_Pin
 
-#define TP_MOSI_PORT							GPIOE
+#define TP_MOSI_PORT							GPIOB
 #define TP_MOSI_PIN								T_MOSI_Pin
 
-#define TP_IRQ_PORT								GPIOE
+#define TP_IRQ_PORT								GPIOB
 #define TP_IRQ_PIN								T_IRQ_Pin
 
 #define CMD_RDY             			0X90
